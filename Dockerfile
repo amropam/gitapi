@@ -1,11 +1,4 @@
-FROM ubuntu
-
-RUN apt-get update
-
-RUN apt-get install nginx -y
-
-COPY index.html /var/www/html/
-
-EXPOSE 80
-
-CMD [“nginx”,”-g”,”daemon off;”]
+FROM ubuntu:18.04
+COPY . /app
+RUN make /app
+CMD python /app/app.py
