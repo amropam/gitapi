@@ -1,7 +1,9 @@
-FROM ubuntu:18.04
-CMD python3 --version
-CMD sudo apt update
-CMD sudo apt install python3
-CMD python3 --version
-COPY app.py .
-CMD py app.py
+FROM ubuntu:16.04
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3.5 \
+    python3-pip \
+    && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+CMD ["python", "./app.py"]
