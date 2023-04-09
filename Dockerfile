@@ -1,4 +1,4 @@
 FROM ubuntu:16.04
 
 RUN apt-get update 
-CMD ["python", "app.py"]
+ENTRYPOINT ["python", "app.py"]
